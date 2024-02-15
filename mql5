@@ -1,0 +1,197 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                          Supply Demand Indicator |
+//|                                      Developer's site: forexroboteasy.com |
+//|                                              Developed by: Forex Robot Easy Team |
+//+------------------------------------------------------------------+
+#property copyright 'Forex Robot Easy Team'
+#property link      'forexroboteasy.com'
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|            Supply Demand Indicator by ZonePro Forex Software      |
+//|                                                                  |
+//+------------------------------------------------------------------+
+#property indicator_chart_window
+#property indicator_buffers 1
+#property indicator_color1 Blue
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                        Input parameters                          |
+//|                                                                  |
+//+------------------------------------------------------------------+
+input int higherTimeframes = 3; // Number of higher timeframes to consider
+input color freshZoneColor = Blue; // Color for fresh zones
+input color testedZoneColor = Green; // Color for tested zones
+input color brokenZoneColor = Red; // Color for broken zones
+input color oldZoneColor = Yellow; // Color for old zones
+input color nestedZoneColor = Orange; // Color for nested zones
+input bool alertsEnabled = true; // Enable alerts
+input bool repaintEnabled = false; // Enable repainting
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                      Global variables                            |
+//|                                                                  |
+//+------------------------------------------------------------------+
+double zonesBuffer[]; // Buffer to store zone levels
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                       Custom indicator initialization function   |
+//|                                                                  |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    SetIndexBuffer(0, zonesBuffer, INDICATOR_DATA);
+    SetIndexStyle(0, DRAW_ARROW);
+    SetIndexArrow(0, 233);
+    SetIndexEmptyValue(0, 0.0);
+
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                       Custom indicator deinitialization function |
+//|                                                                  |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Cleanup code
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                         Custom indicator calculation function    |
+//|                                                                  |
+//+------------------------------------------------------------------+
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const datetime& time[],
+                const double& open[],
+                const double& high[],
+                const double& low[],
+                const double& close[],
+                const long& tick_volume[],
+                const long& volume[],
+                const int& spread[])
+{
+    // Calculation code
+
+    return(rates_total);
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                       Custom trading functions                    |
+//|                                                                  |
+//+------------------------------------------------------------------+
+void drawFreshZone(const double level)
+{
+    // Drawing code for fresh zone
+}
+
+void drawTestedZone(const double level)
+{
+    // Drawing code for tested zone
+}
+
+void drawBrokenZone(const double level)
+{
+    // Drawing code for broken zone
+}
+
+void drawOldZone(const double level)
+{
+    // Drawing code for old zone
+}
+
+void drawNestedZone(const double level)
+{
+    // Drawing code for nested zone
+}
+
+bool isZoneTouched(const double level)
+{
+    // Check if zone is touched
+
+    return false;
+}
+
+bool isZoneEntered(const double level)
+{
+    // Check if zone is entered
+
+    return false;
+}
+
+bool isZoneBroken(const double level)
+{
+    // Check if zone is broken
+
+    return false;
+}
+
+bool isCandleReversal(const double level)
+{
+    // Check if reversal candle leaves the zone
+
+    return false;
+}
+
+double getPipSize(const double level)
+{
+    // Calculate pip size for nested zone
+
+    return 0.0;
+}
+
+int getPreviousTouches(const double level)
+{
+    // Get number of previous touches on the zone
+
+    return 0;
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                       Custom trading logic                        |
+//|                                                                  |
+//+------------------------------------------------------------------+
+void tradingLogic()
+{
+    // Trading logic here
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                       Custom trading robot                        |
+//|                                                                  |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    if (IsStopped()) return;
+
+    if (repaintEnabled)
+    {
+        // Repainting code
+    }
+
+    // Trading robot logic
+    tradingLogic();
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                       Custom alerts function                      |
+//|                                                                  |
+//+------------------------------------------------------------------+
+void sendAlert(const string message)
+{
+    if (alertsEnabled)
+    {
+        // Code to send alerts
+    }
+}
